@@ -12,9 +12,9 @@ The official repository of our paper "**Mitigating Hallucinations in Large Video
 ## Abstract
 With the advancement of large language models (LLMs), video language models (VLMs) have gained widespread application across various fields. However, the limited semantic discrimination ability of VLMs, coupled with the restricted diversity and uneven sample distribution of most video-language datasets, has led to a biased understanding of the semantics between visual concepts, resulting in hallucinations. In this work, we propose a Multi-level Multimodal Alignment (MMA) strategy that utilizes a text encoder and semantic discriminative loss to achieve multi-level alignment, allowing the model to capture both low-level and high-level semantic relationships and reduce hallucinations. By incorporating language-level alignment into the training process, our method ensures stronger semantic consistency between video and textual modalities. Additionally, we introduce a two-stage progressive training strategy that leverages larger and more diverse datasets to enhance semantic alignment and better capture general semantic relationships between visual and textual modalities. Comprehensive experiments demonstrate that our method significantly reduces hallucinations and achieves superior performance across multiple video-language tasks, setting a new benchmark in the field. 
 ## Demos
-- Comparison with MA-LMM on VQA Task : [MSVD Dataset](demos/Comparison_with_MA-LMM_on_Video_Question_Answering_Task.mp4).
+- Comparison with MA-LMM on VQA Task : [MSVD Dataset](./MMA-MFF/demos/Comparison_with_MA-LMM_on_Video_Question_Answering_Task.mp4).
 
-- Comparison with MA-LMM on Video Recognition Task : [LVU Dataset](./demos/Comparison_with_MA-LMM_on_Video_Recognition_Task.mp4).
+- Comparison with MA-LMM on Video Recognition Task : [LVU Dataset](./MMA-MFF/demos/Comparison_with_MA-LMM_on_Video_Recognition_Task.mp4).
 
 
 ## Installation
@@ -99,5 +99,6 @@ For testing, please move the corresponding model to the parent directory before 
 
 ## Acknowledgment
 A large part of the code is borrowed from [MA-LMM](https://github.com/boheumd/MA-LMM). Many thanks for this wonderful work.
+
 
 
