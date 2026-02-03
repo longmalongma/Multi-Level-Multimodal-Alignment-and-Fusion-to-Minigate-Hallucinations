@@ -33,7 +33,7 @@ pip install -e .
 For the long-term video understanding task, we conduct experiments including [LVU](https://github.com/chaoyuaw/lvu), [Breakfast](https://durandtibo.github.io/aroma/datasets/breakfast/),
 and [COIN](https://github.com/coin-dataset).
 
-For the video question answering task, we conduct experiments including  [MSVD](https://github.com/xudejing/video-question-answering), [MSR-VTT](https://huggingface.co/datasets/friedrichor/MSR-VTT) and [ActivityNet](https://github.com/activitynet/ActivityNet).
+For the video question answering task, we conduct experiments including  [MSVD](https://github.com/xudejing/video-question-answering), [MSR-VTT](https://huggingface.co/datasets/friedrichor/MSR-VTT), and [ActivityNet](https://github.com/activitynet/ActivityNet).
 
 For the video caption task, we conduct experiments including [MSVD](https://github.com/xudejing/video-question-answering), [MSR-VTT](https://huggingface.co/datasets/friedrichor/MSR-VTT),
 and [YouCook2](https://github.com/LuoweiZhou/ProcNets-YouCook2).
@@ -104,6 +104,7 @@ For testing, please move the corresponding model to the parent directory before 
 
 ## Acknowledgment
 A large part of the code is borrowed from [MA-LMM](https://github.com/boheumd/MA-LMM). Many thanks for this wonderful work.
+
 
 
 
