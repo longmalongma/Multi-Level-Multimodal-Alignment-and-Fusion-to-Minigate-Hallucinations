@@ -2,7 +2,7 @@
 The official repository of our paper "**Mitigating Hallucinations in Large Video-Language Models through Multi-Level Multimodal Alignment And Fusion**".
 
 ## Model Overview
-![alt text](./res/image.png)
+![alt text](./MMA-MFF/res/image.png)
 
 ## Features
 1. We propose a novel multi-level multimodal alignment strategy that incorporates textual semantic supervision during visual encoding. This approach aligns semantic features from both text and vision at multiple levels to address hallucinations in large video-language models.
@@ -99,4 +99,5 @@ For testing, please move the corresponding model to the parent directory before 
 
 ## Acknowledgment
 A large part of the code is borrowed from [MA-LMM](https://github.com/boheumd/MA-LMM). Many thanks for this wonderful work.
+
 
