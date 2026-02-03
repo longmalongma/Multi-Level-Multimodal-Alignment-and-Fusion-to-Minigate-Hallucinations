@@ -10,7 +10,7 @@ The official repository of our paper "**Mitigating Hallucinations in Large Video
 3. We propose an innovative multi-dimensional feature fusion strategy that introduces a dynamic interaction mechanism into cross-modal representation learning. This approach employs a cross-attention architecture to achieve deep integration of semantically aligned features with original visual features, thereby addressing the modality imbalance problem in video-language models.
 4. We conducted extensive experiments on the LVU dataset compare our methods with other VLMs. Our results show that our approach achieves state-of-the-art performance across various downstream video tasks, significantly improving the quality and reliability of video language models while effectively reducing hallucinations.
 ## Abstract
-With the advancement of large language models (LLMs), video language models (VLMs) have gained widespread application across various fields. However, the limited semantic discrimination ability of VLMs, coupled with the restricted diversity and uneven sample distribution of most video-language datasets, has led to a biased understanding of the semantics between visual concepts, resulting in hallucinations. In this work, we propose a Multi-level Multimodal Alignment (MMA) strategy that utilizes a text encoder and semantic discriminative loss to achieve multi-level alignment, allowing the model to capture both low-level and high-level semantic relationships and reduce hallucinations. By incorporating language-level alignment into the training process, our method ensures stronger semantic consistency between video and textual modalities. Additionally, we introduce a two-stage progressive training strategy that leverages larger and more diverse datasets to enhance semantic alignment and better capture general semantic relationships between visual and textual modalities. Comprehensive experiments demonstrate that our method significantly reduces hallucinations and achieves superior performance across multiple video-language tasks, setting a new benchmark in the field. 
+The recent success of large language models (LLMs) has significantly heightened interest in integrating vision models for the development of vision-language foundation models. These multimodal frameworks are designed to combine visual and textual information to enhance application performance. However, many existing multimodal models are constrained by their limited capacity to process only a small number of frames, thereby compromising their ability to understand longer or more complex videos. Additionally, the limited semantic discriminative capability of current video-language models (VLMs), coupled with the insufficient diversity and imbalanced distribution of most video-language datasets, leads to biased semantic understanding of visual concepts, resulting in hallucinations. To address these challenges, we propose a novel approach to mitigate hallucinations through multi-level multimodal alignment and multidimensional feature fusion. This strategy leverages a text encoder and semantic discrimination loss to achieve hierarchical alignment, enabling the model to simultaneously capture both low-level and high-level semantic relationships, thus reducing hallucinations. By incorporating language-level alignment into the training process and fusing features across different dimensions via cross-attention mechanisms, our method ensures stronger semantic consistency between video and textual modalities, enhances the model's holistic and detailed comprehension as well as reasoning ability for videos, and improves the accuracy of generated content. Furthermore, we introduce an advanced training scheme that utilizes a broader and more diverse dataset to refine contrastive loss training, thereby generating richer and more varied semantic embeddings. Comprehensive experiments demonstrate that our method significantly reduces hallucinations and achieves superior performance across multiple video-language tasks, establishing a new benchmark in the field.
 ## Demos
 - Comparison with MA-LMM on VQA Task : [MSVD Dataset](./MMA-MFF/demos/Comparison_with_MA-LMM_on_Video_Question_Answering_Task.mp4).
 
@@ -30,9 +30,14 @@ pip install -e .
 
 **Before running `pip install -e .`, ensure you have the correct requirements.**
 ## Dataset
-For the long-term video understanding task, we conduct experiments [LVU](https://github.com/chaoyuaw/lvu)
+For the long-term video understanding task, we conduct experiments including [LVU](https://github.com/chaoyuaw/lvu), [Breakfast](https://durandtibo.github.io/aroma/datasets/breakfast/),
+and [COIN](https://github.com/coin-dataset).
 
-For the video question answering task, we conduct experiments including  [MSVD](https://github.com/xudejing/video-question-answering)
+For the video question answering task, we conduct experiments including  [MSVD](https://github.com/xudejing/video-question-answering), [MSR-VTT](https://huggingface.co/datasets/friedrichor/MSR-VTT) and [ActivityNet](https://github.com/activitynet/ActivityNet).
+
+For the video caption task, we conduct experiments including [MSVD](https://github.com/xudejing/video-question-answering), [MSR-VTT](https://huggingface.co/datasets/friedrichor/MSR-VTT),
+and [YouCook2](https://github.com/LuoweiZhou/ProcNets-YouCook2).
+
 
 You can download videos for each dataset through the script provided here (lavis/datasets/download_scripts). For LVU, please download the original videos through the official link provided above.
 
@@ -99,6 +104,7 @@ For testing, please move the corresponding model to the parent directory before 
 
 ## Acknowledgment
 A large part of the code is borrowed from [MA-LMM](https://github.com/boheumd/MA-LMM). Many thanks for this wonderful work.
+
 
 
 
