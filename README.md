@@ -1,15 +1,14 @@
-# MMA-LLM: Mitigating Hallucinations in Large Video-Language Models throughMulti-Level Multimodal Alignment
-The official repository of our paper "**MMA-LLM: Mitigating Hallucinations in Large Video-Language Models throughMulti-Level Multimodal Alignment**".
+# MMA-MFF: Mitigating Hallucinations in Large Video-Language Models throughMulti-Level Multimodal Alignment and Fusion
+The official repository of our paper "**Mitigating Hallucinations in Large Video-Language Models through Multi-Level Multimodal Alignment And Fusion**".
 
 ## Model Overview
 ![alt text](./res/image.png)
 
-Anonymous Submission
-[project page](https://anonymous.4open.science/r/MMA-LLM-722B)
 ## Features
 1. We propose a novel multi-level multimodal alignment strategy that incorporates textual semantic supervision during visual encoding. This approach aligns semantic features from both text and vision at multiple levels to address hallucinations in large video-language models.
 2. We propose a two-stage training strategy that facilitates progressive co-learning from general vision-text semantics to task-specific semantics, utilizing a larger and more diverse dataset.
-3. We conducted extensive experiments on the LVU dataset compare our methods with other VLMs. Our results show that our approach achieves state-of-the-art performance across various downstream video tasks, significantly improving the quality and reliability of video language models while effectively reducing hallucinations.
+3. We propose an innovative multi-dimensional feature fusion strategy that introduces a dynamic interaction mechanism into cross-modal representation learning. This approach employs a cross-attention architecture to achieve deep integration of semantically aligned features with original visual features, thereby addressing the modality imbalance problem in video-language models.
+4. We conducted extensive experiments on the LVU dataset compare our methods with other VLMs. Our results show that our approach achieves state-of-the-art performance across various downstream video tasks, significantly improving the quality and reliability of video language models while effectively reducing hallucinations.
 ## Abstract
 With the advancement of large language models (LLMs), video language models (VLMs) have gained widespread application across various fields. However, the limited semantic discrimination ability of VLMs, coupled with the restricted diversity and uneven sample distribution of most video-language datasets, has led to a biased understanding of the semantics between visual concepts, resulting in hallucinations. In this work, we propose a Multi-level Multimodal Alignment (MMA) strategy that utilizes a text encoder and semantic discriminative loss to achieve multi-level alignment, allowing the model to capture both low-level and high-level semantic relationships and reduce hallucinations. By incorporating language-level alignment into the training process, our method ensures stronger semantic consistency between video and textual modalities. Additionally, we introduce a two-stage progressive training strategy that leverages larger and more diverse datasets to enhance semantic alignment and better capture general semantic relationships between visual and textual modalities. Comprehensive experiments demonstrate that our method significantly reduces hallucinations and achieves superior performance across multiple video-language tasks, setting a new benchmark in the field. 
 ## Demos
@@ -100,3 +99,4 @@ For testing, please move the corresponding model to the parent directory before 
 
 ## Acknowledgment
 A large part of the code is borrowed from [MA-LMM](https://github.com/boheumd/MA-LMM). Many thanks for this wonderful work.
+
