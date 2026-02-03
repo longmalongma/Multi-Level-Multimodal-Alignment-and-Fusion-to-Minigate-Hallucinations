@@ -1,0 +1,104 @@
+Metadata-Version: 2.2
+Name: salesforce-lavis
+Version: 1.0.1
+Summary: LAVIS - A One-stop Library for Language-Vision Intelligence
+Author: Dongxu Li, Junnan Li, Hung Le, Guangsen Wang, Silvio Savarese, Steven C.H. Hoi
+License: 3-Clause BSD
+Keywords: Vision-Language,Multimodal,Image Captioning,Generative AI,Deep Learning,Library,PyTorch
+Requires-Python: >=3.7.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: contexttimer
+Requires-Dist: decord
+Requires-Dist: einops>=0.4.1
+Requires-Dist: fairscale==0.4.4
+Requires-Dist: ftfy
+Requires-Dist: iopath
+Requires-Dist: ipython
+Requires-Dist: omegaconf
+Requires-Dist: opencv-python-headless==4.5.5.64
+Requires-Dist: opendatasets
+Requires-Dist: packaging
+Requires-Dist: pandas
+Requires-Dist: plotly
+Requires-Dist: pre-commit
+Requires-Dist: pycocoevalcap
+Requires-Dist: pycocotools
+Requires-Dist: python-magic
+Requires-Dist: scikit-image
+Requires-Dist: sentencepiece
+Requires-Dist: spacy
+Requires-Dist: streamlit
+Requires-Dist: timm==0.4.12
+Requires-Dist: torch>=1.10.0
+Requires-Dist: torchvision
+Requires-Dist: tqdm
+Requires-Dist: transformers>=4.28.0
+Requires-Dist: webdataset
+Requires-Dist: wheel
+Dynamic: author
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: keywords
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# MMA-LLM: Mitigating Hallucinations in Large Video-Language Models throughMulti-Level Multimodal Alignment
+
+
+## Model Overview
+![alt text](./res/image.png)
+
+## Installation
+
+You can install the conda environment by running:
+```bash
+cd MMA-LLM
+pip install -e .
+```
+If you are running the code on Apple Silicon, you need to use `eva-decord` instead of `decord`. Here is the modification in the `requirements.txt` file you should do:
+
+```text
+contexttimer
+eva-decord
+einops>=0.4.1
+fairscale==0.4.4
+...
+```
+**Before running `pip install -e .`, ensure you have the correct requirements.**
+## First Stage Training
+We use [webvid](https://github.com/m-bain/webvid) to pre-align the semantics ,and we provide a script [webvid-convert.py](./webvid/webvid-convert.py) for processing datasets, modified the msvd configuration file to adapt to the format of the webvid script output.If you have been modify [msvd_qa.yaml](./lavis\configs\datasets\msvd\defaults_qa.yaml) to adapt webvid, then you can run the bash [train_cap.sh](./run_scripts\webvid\train_cap.sh) to finish first stage training.During the training, we only pay atttention on semantic discrimination loss.
+
+
+## Running
+
+### Download Pre-trained LLM
+We use Vicuna-v1.1 as our pre-trained LLM weights, you can download from this [link](https://github.com/lm-sys/FastChat/blob/main/docs/vicuna_weights_version.md) as arrange in this format.
+   ```
+   ├── llm
+        ├── vicuna-7b
+        ├── vicuna-13b
+   ```
+### Finetuning on Downstreaming Tasks
+Our model leverages pre-trained weights from [InstructBlip](https://github.com/salesforce/LAVIS/tree/main/projects/instructblip), which was only pre-trained on image-text pairs. Our training process occurred on 4 V100 GPUs. If you would like to fine-tune the model for various video datasets, please run the following command:
+```bash
+bash run_scripts/${dataset}/train.sh
+```
+
+#### LVU dataset
+```bash
+    # Please choose the task from the following list
+    # ['director', 'genre', 'relationship', 'scene', 'way_speaking', 'writer', 'year']
+    datasets.lvu_cls.task ${task}
+```
+
+### Testing
+We also provided finetuned checkpoints for each video dataset. Please download the [saved_model.tar](https://drive.google.com/file/d/1mq6fg69Ofm32-1HjEunoFtPg8ymAIcOp/view?usp=sharing) and unzip it. 
+For the test script corresponding to each dataset, provide the path to the extracted checkpoint to execute the evaluation.
+```bash
+bash run_scripts/${dataset}/test.sh ${checkpoint_path}
+```
+
+
